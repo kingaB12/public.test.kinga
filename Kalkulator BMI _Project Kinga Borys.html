@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Kalkulator BMI</title>
+    <Style>
+      body{
+        font-family: 'Montserrat', sans-serif;
+        background-color: bisque;
+      }
+      h3{
+        text-align: center;
+      }
+        h1 {
+            font-size: 50px;
+            text-align: center;  
+        }
+        .modules {
+        list-style-type: non; 
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        }
+        .module_1 {
+            margin: 10px;
+            border: 4px dotted black;
+            padding: 10px;
+        }
+        .module_2 {
+            margin: 10px;
+            border: 4px dotted black;
+            padding: 10px;
+        }
+        .module_3 {
+            margin: 10px;
+            border: 4px dotted black;
+            padding: 10px;
+        }
+        .parameters_1 {
+        list-style-type: non; 
+        display: flex;  
+        padding: 5px;
+        }
+        .parameters_2 {
+        list-style-type: non; 
+        display: flex;  
+        padding: 5px;
+        }
+        p {
+            margin: 5px;  
+        }
+        .input_1 {
+            padding: 5px;
+            background-color: gray;
+            border-bottom-right-radius: 10px;
+            border: 2px solid black;
+            display: block;
+            width: 47%;
+            text-align: center;
+        }
+        .input_2 {
+            padding: 5px;
+            background-color: gray;
+            border-bottom-right-radius: 10px;
+            border: 2px solid black;
+            display: block;
+            width: 47%;
+            text-align: center;
+        }
+        .button_1 {
+            margin-right: 5px;
+            margin-top: 15px;
+            float: right;
+        }
+        .result_1 {
+          font-size: 15px;
+        list-style-type: non; 
+        display: flex;  
+        padding: 5px;
+        }
+        .result_2{
+          font-size: 15px;
+        list-style-type: non; 
+        display: flex;  
+        padding: 5px;
+        }
+        .result_3{
+          font-size: 20px;
+          list-style-type: non; 
+        display: flex;  
+        padding: 5px;
+        }
+        #podstaw_wage{
+          list-style-type: non; 
+        display: flex;  
+        padding: 10px;
+          margin: 10px;
+            border: 1px solid black;
+        }
+        #podstaw_wzrost{
+          list-style-type: non; 
+        display: flex;  
+        padding: 10px;
+          margin: 10px;
+            border: 1px solid black;
+        }
+        #podstaw_BMI{
+          list-style-type: non; 
+        display: flex;  
+        padding: 10px;
+          margin: 10px;
+            border: 1px solid black;
+        }
+        .history_1{
+          list-style-type: non; 
+        display: flex;  
+        padding: 5px;
+        }
+        #podstaw_historie{
+          padding: 10px;
+          margin: 10px;
+            border: 1px solid black;
+        }
+        #podstaw_BMI{
+          font-size: 20px;
+        }
+    </Style>
+  </head>
+  <body>
+    <h1>Kalkulator BMI</h1>
+    <div class="modules">
+      <div class="module_1">
+          <h3>Parametry</h3>
+            <div class="parameters_1" >
+              <p>Waga:</p>
+              <input type="text" name="weight" value="Podaj wagę" onFocus="this.value=''" class="input_1" maxlength="5" /><br />
+            </div>
+            <div class="parameters_2">
+              <p>Wzost:</p>
+              <input type="text" name="height" value="Podaj wzrost" onFocus="this.value=''" class="input_2" maxlength="5" /><br />
+            </div>
+            <div>
+                <button class="button_1">Policz BMI</button>
+            </div>
+          </div>
+      <div class="module_2">
+         <h3>Wynik</h3> 
+         <div class="result_1">
+            <p>Podana waga: </p>
+            <div id="podstaw_wage"></div>
+         </div>
+         <div class="result_2">
+            <p>Podany wzrost: </p>
+            <div id="podstaw_wzrost"></div>
+         </div>
+         <div class="result_3">
+            <p>Twoje BMI:</p>
+            <div id="podstaw_BMI"></div>
+         </div>
+      </div>
+      <div class="module_3">
+         <h3>Historia</h3> 
+         <div class="history_1">
+            <p>Twój ostatni pomiar:</p>
+            <div id="podstaw_historie"></div>
+        </div>
+
+      </div>
+   </div>   
+   <script>
+    let tablica_bmi=[];
+    licznik=0;
+          let wykonaj_bmi= document.querySelector (".button_1");
+          wykonaj_bmi.addEventListener("click", function () {
+	        weight = document.querySelector(".input_1").value;
+	        height = document.querySelector(".input_2").value;
+          document.querySelector("#podstaw_wage").innerHTML=weight;
+          document.querySelector("#podstaw_wzrost").innerHTML=height;
+
+	        bmi = (weight/(height * height))*10000;
+          bmi=bmi.toFixed(2);
+
+   tablica_bmi.push([weight, height, bmi]);
+   let pole_bmi=document.querySelector("#podstaw_BMI");
+   pole_bmi.innerHTML=bmi;
+   let kontenerElement = document.querySelector("#podstaw_historie");
+   let nowyDiv = document.createElement("div");
+   document.querySelector("#podstaw_historie").innerHTML = document.querySelector("#podstaw_historie").innerHTML + tablica_bmi[licznik++] +"<br>";
+
+          if (weight <= 39) {
+            document.querySelector("#podstaw_wage").innerHTML = "Podana waga " + weight + " jest za mała by wyliczyć BMI";
+            document.querySelector("#podstaw_BMI").innerHTML = "Nie można wyliczyć BMI";
+            document.querySelector("#podstaw_historie").innerHTML = "";
+          	} else if (weight >= 201) {
+		        document.querySelector("#podstaw_wage").innerHTML =  "Podana waga " + weight + " jest za duża by wyliczyć BMI";
+            document.querySelector("#podstaw_BMI").innerHTML = "Nie można wyliczyć BMI";
+            document.querySelector("#podstaw_historie").innerHTML = "";
+	          } else if (weight==""){
+              document.querySelector("#podstaw_wage").innerHTML = "Podaj wagę ";
+              document.querySelector("#podstaw_BMI").innerHTML = "Nie można wyliczyć BMI";
+              document.querySelector("#podstaw_historie").innerHTML = "";
+            } 
+
+          if (height <= 119) {
+            document.querySelector("#podstaw_wzrost").innerHTML = "Podany wzrost " + height + " jest za mały by wyliczyć BMI";
+            document.querySelector("#podstaw_BMI").innerHTML = "Nie można wyliczyć BMI";
+            document.querySelector("#podstaw_historie").innerHTML = "";
+	          } else if (height >= 241) {
+		        document.querySelector("#podstaw_wzrost").innerHTML =  "Podany wzrost " + height + " jest za duży by wyliczyć BMI";
+            document.querySelector("#podstaw_BMI").innerHTML = "Nie można wyliczyć BMI";
+            document.querySelector("#podstaw_historie").innerHTML = "";
+	          } else if (height==""){
+              document.querySelector("#podstaw_wzrost").innerHTML = "Podaj wzrost";
+              document.querySelector("#podstaw_BMI").innerHTML = "Nie można wyliczyć BMI";
+              document.querySelector("#podstaw_historie").innerHTML = "";
+            }
+        
+        })
+    </script>
+  </body>
+</html>
