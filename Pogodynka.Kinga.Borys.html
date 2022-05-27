@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+  <title>Pogoda dla Ciebie!!!</title>
+  <style>
+    body {
+      font-family: "Rubik", sans-serif;
+      background-color: rgb(255, 232, 230);
+
+    }
+
+    .text {
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 60px;
+      text-align: center;
+      text-shadow: 4px 4px 1px grey;
+    }
+
+    #pole_1 {
+      padding: 5px;
+      background-color:azure;
+      border: 2px solid black;
+      display: block;
+      width: 27%;
+      text-align: center;
+      font-size: 30px;
+      
+    }
+    .pogodaInfo{
+      font-size: 20px;
+    }
+
+    .center {
+      list-style-type: non;
+      display: flex;
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .text1{
+      margin: 10px;
+      padding: 30px;
+    }
+
+    .text2 {
+      margin: 10px;
+      padding: 30px;
+    }
+
+    .text3 {
+      margin: 10px;
+      padding: 30px;
+    }
+
+    .text4 {
+      margin: 10px;
+      padding: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Pogoda dla Ciebie!!!</h1>
+  <div class="text">
+    <input type="text" name="miasto" value="Wyszukaj miasto" onFocus="this.value=''" id="pole_1" maxlength="15"
+      oninput=pobierzDane() list="lista" /><br />
+    <datalist id="lista"></datalist>
+    <button id="przycisk">Pobierz prognozę pogody!</button>
+  </div>
+  <h2></h2>
+  <div class="pogodaInfo">
+    <div>Dane: <span class="aktualizacja"></span></div>
+    <div>Miasto: <span class="city_dzis"></span></div>
+  </div>
+  <div class="center">
+    <div class="text1">
+      <h2>Teraz</h2>
+      <div class="pogodaTeraz">
+        <div><span class="ikona_teraz"></span></div>
+        <div>Informacja: <span class="info_teraz"></span></div>
+        <div>Temperatura: (°C)  <span class="temp_teraz"></span></div>
+        <div>Zachmurzenie: (%) <span class="zachmurzenie_teraz"></span></div>
+        <div>Kierunek wiatru: <span class="wiatr_teraz"></span></div>
+        <div>Prędkość wiatru: (km/h) <span class="wiatrP_teraz"></span></div>
+        <div>Godzina wschodu słońca: <span class="wschod_teraz"></span></div>
+        <div>Godzina zachodu słońca: <span class="zachod_teraz"></span></div>
+      </div>
+    </div>
+    <div class="text2">
+    <h2>Dzisiaj</h2>
+    <div class="pogodaAktualna">
+      <div>Informacja: <span class="info_dzis"></span></div>
+      <div>Temperatura: (°C)  <span class="temp_dzis"></span></div>
+      <div>Zachmurzenie: (%) <span class="zachmurzenie_dzis"></span></div>
+      <div>Kierunek wiatru: <span class="wiatr_dzis"></span></div>
+      <div>Prędkość wiatru: (km/h) <span class="wiatrP_dzis"></span></div>
+      <div>Godzina wschodu słońca: <span class="wschod_dzis"></span></div>
+      <div>Godzina zachodu słońca: <span class="zachod_dzis"></span></div>
+    </div>
+  </div>
+  <div class="text3">
+    <h2>Jutro</h2>
+    <div class="pogodaJutro">
+      <div>Informacja: <span class="info_jutro"></span></div>
+      <div>Temperatura: (°C)  <span class="temp_jutro"></span></div>
+      <div>Zachmurzenie: (%)  <span class="zachmurzenie_jutro"></span></div>
+      <div>Kierunek wiatru: <span class="wiatr_jutro"></span></div>
+      <div>Prędkość wiatru: (km/h) <span class="wiatrP_jutro"></span></div>
+      <div>Godzina wschodu słońca: <span class="wschod_jutro"></span></div>
+      <div>Godzina zachodu słońca: <span class="zachod_jutro"></span></div>
+    </div>
+  </div>
+  <div class="text4">
+    <h2>Pojutrze</h2>
+    <div class="pogodaPojutro">
+      <div>Informacja: <span class="info_pojutro"></span></div>
+      <div>Temperatura: (°C)  <span class="temp_pojutro"></span></div>
+      <div>Zachmurzenie: (%) <span class="zachmurzenie_pojutro"></span></div>
+      <div>Kierunek wiatru: <span class="wiatr_pojutro"></span></div>
+      <div>Prędkość wiatru: (km/h) <span class="wiatrP_pojutro"></span></div>
+      <div>Godzina wschodu słońca: <span class="wschod_pojutro"></span></div>
+      <div>Godzina zachodu słońca: <span class="zachod_pojutro"></span></div>
+    </div>
+  </div>
+  </div>
+  <script>
+    let input = document.getElementById("pole_1");
+    let dropdown = document.getElementById("lista")
+    function pobierzDane() {
+      fetch(`https://www.wowapi.pl/pogoda/miasta?szukaj=${input.value}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log("znalezione miasto: ", data)
+          dropdown.innerHTML = null
+          for (let i = 0; i < data.length; i++) {
+            let cityElement = document.createElement("option")
+            cityElement.value = data[i]["nazwa"]
+            cityElement.innerText = data[i]["nazwa"]
+            dropdown.appendChild(cityElement)
+          };
+        });
+      console.log("selected city: ", input.value)
+    }
+
+    let elementPrzycisk = document.getElementById("przycisk");
+    elementPrzycisk.addEventListener("click", function () {
+      let TerazInfo = document.querySelector(".pogodaTeraz .info_teraz");
+      let TerazTemp = document.querySelector(".pogodaTeraz .temp_teraz");
+      let TerazZachmurzenie = document.querySelector(".pogodaTeraz .zachmurzenie_teraz");
+      let TerazWiatr = document.querySelector(".pogodaTeraz .wiatr_teraz");
+      let TerazPredkoscWiatr = document.querySelector(".pogodaTeraz .wiatrP_teraz");
+      let TerazGodzinaWschodu = document.querySelector(".pogodaTeraz .wschod_teraz");
+      let TerazGodzinaZachodu = document.querySelector(".pogodaTeraz .zachod_teraz");
+
+      let DzisInfo = document.querySelector(".pogodaAktualna .info_dzis");
+      let DzisTemp = document.querySelector(".pogodaAktualna .temp_dzis");
+      let DzisZachmurzenie = document.querySelector(".pogodaAktualna .zachmurzenie_dzis");
+      let DzisWiatr = document.querySelector(".pogodaAktualna .wiatr_dzis");
+      let DzisPredkoscWiatr = document.querySelector(".pogodaAktualna .wiatrP_dzis");
+      let DzisGodzinaWschodu = document.querySelector(".pogodaAktualna .wschod_dzis");
+      let DzisGodzinaZachodu = document.querySelector(".pogodaAktualna .zachod_dzis");
+
+      let JutroInfo = document.querySelector(".pogodaJutro .info_jutro");
+      let JutroTemp = document.querySelector(".pogodaJutro .temp_jutro");
+      let JutroZachmurzenie = document.querySelector(".pogodaJutro .zachmurzenie_jutro");
+      let JutroWiatr = document.querySelector(".pogodaJutro .wiatr_jutro");
+      let JutroPredkoscWiatr = document.querySelector(".pogodaJutro .wiatrP_jutro");
+      let JutroGodzinaWschodu = document.querySelector(".pogodaJutro .wschod_jutro");
+      let JutroGodzinaZachodu = document.querySelector(".pogodaJutro .zachod_jutro");
+
+      let PojutroInfo = document.querySelector(".pogodaPojutro .info_pojutro");
+      let PojutroTemp = document.querySelector(".pogodaPojutro .temp_pojutro");
+      let PojutroZachmurzenie = document.querySelector(".pogodaPojutro .zachmurzenie_pojutro");
+      let PojutroWiatr = document.querySelector(".pogodaPojutro .wiatr_pojutro");
+      let PojutroredkoscWiatr = document.querySelector(".pogodaPojutro .wiatrP_pojutro");
+      let PojutroGodzinaWschodu = document.querySelector(".pogodaPojutro .wschod_pojutro");
+      let PojutroGodzinaZachodu = document.querySelector(".pogodaPojutro .zachod_pojutro");
+
+      fetch(`https://www.wowapi.pl/pogoda/prognoza?miasto=${input.value}`)
+        .then(function (odpowiedz) {
+          odpowiedz.json().then(function (dane) {
+            let daneAktualizacja = dane["aktualizacja"];
+            document.querySelector(".pogodaInfo .aktualizacja").innerHTML = daneAktualizacja;
+            let miastoDane = dane.miasto;
+            document.querySelector(".pogodaInfo .city_dzis").innerHTML = miastoDane;
+
+            let pogodaTeraz = dane.teraz;
+            TerazInfo.innerHTML = pogodaTeraz.opis;
+            TerazTemp.innerHTML = pogodaTeraz.temperatura;
+            TerazZachmurzenie.innerHTML = pogodaTeraz.zachmurzenie;
+            TerazWiatr.innerHTML = pogodaTeraz.wiatrKierunekSłownie;
+            TerazPredkoscWiatr.innerHTML = pogodaTeraz.wiatrPrędkość;
+            TerazGodzinaWschodu.innerHTML = pogodaTeraz.wschódSłońca;
+            TerazGodzinaZachodu.innerHTML = pogodaTeraz.zachódSłońca;
+
+            let pogodaDzis = dane.prognoza.dziś;
+            DzisInfo.innerHTML = pogodaDzis.opis;
+            DzisTemp.innerHTML = pogodaDzis.temperatura;
+            DzisZachmurzenie.innerHTML = pogodaDzis.zachmurzenie;
+            DzisWiatr.innerHTML = pogodaDzis.wiatrKierunekSłownie;
+            DzisPredkoscWiatr.innerHTML = pogodaDzis.wiatrPrędkość;
+            DzisGodzinaWschodu.innerHTML = pogodaDzis.wschódSłońca;
+            DzisGodzinaZachodu.innerHTML = pogodaDzis.zachódSłońca;
+
+            let pogodaJutro = dane.prognoza.jutro;
+            JutroInfo.innerHTML = pogodaJutro.opis;
+            JutroTemp.innerHTML = pogodaJutro.temperatura;
+            JutroZachmurzenie.innerHTML = pogodaJutro.zachmurzenie;
+            JutroWiatr.innerHTML = pogodaJutro.wiatrKierunekSłownie;
+            JutroPredkoscWiatr.innerHTML = pogodaJutro.wiatrPrędkość;
+            JutroGodzinaWschodu.innerHTML = pogodaJutro.wschódSłońca;
+            JutroGodzinaZachodu.innerHTML = pogodaJutro.zachódSłońca;
+
+            let pogodaPojutrze = dane.prognoza.pojutrze;
+            PojutroInfo.innerHTML = pogodaPojutrze.opis;
+            PojutroTemp.innerHTML = pogodaPojutrze.temperatura;
+            PojutroZachmurzenie.innerHTML = pogodaPojutrze.zachmurzenie;
+            PojutroWiatr.innerHTML = pogodaPojutrze.wiatrKierunekSłownie;
+            PojutroredkoscWiatr.innerHTML = pogodaPojutrze.wiatrPrędkość;
+            PojutroGodzinaWschodu.innerHTML = pogodaPojutrze.wschódSłońca;
+            PojutroGodzinaZachodu.innerHTML = pogodaPojutrze.zachódSłońca;
+          }
+          )
+        })
+    });
+  </script>
+</body>
+
+</html>
