@@ -1,0 +1,19 @@
+{
+    "baseUrl": "https://www.olx.pl/",
+    "retries": 2,
+    "chromeWebSecurity": false,
+    "watchForFileChanges": false,
+    "viewportHeight": 1920,
+    "viewportWidth": 1080,
+    "env": {
+        "lang": "PL"
+    },
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "isoDateTime",
+        "overwrite": false,
+        "html": true,
+        "json": true
+    }
+}
