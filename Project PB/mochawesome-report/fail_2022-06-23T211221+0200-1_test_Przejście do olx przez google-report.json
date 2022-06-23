@@ -1,0 +1,187 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-06-23T19:11:50.957Z",
+    "end": "2022-06-23T19:12:21.319Z",
+    "duration": 30362,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dff72c20-359a-4164-8cb3-35c5dcaf7ff9",
+      "title": "",
+      "fullFile": "cypress/integration/My tests/1_test_Przejście do olx przez google.spec.js",
+      "file": "cypress/integration/My tests/1_test_Przejście do olx przez google.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5ed55aea-c4a3-4bff-a44c-f68dcc889da1",
+          "title": "Wyszukanie olx i przejście do strony",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "95d587c5-2fb0-468a-8b84-5aba05fe568f",
+              "title": "Test 1",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Wejście na google, zaakceptowanie ciastek i asercja + timeout",
+                  "fullTitle": "Wyszukanie olx i przejście do strony Test 1 Wejście na google, zaakceptowanie ciastek i asercja + timeout",
+                  "timedOut": null,
+                  "duration": 2710,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('www.google.com');\ncy.url().should('contain', 'www.google.com');\ncy.get('a', {\n  timeout: 10000\n});",
+                  "err": {},
+                  "uuid": "5b69205c-39cf-4726-b2b1-5962bbb59a13",
+                  "parentUUID": "95d587c5-2fb0-468a-8b84-5aba05fe568f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Wpisanie frazy olx, wyszukanie i asercja",
+                  "fullTitle": "Wyszukanie olx i przejście do strony Test 1 Wpisanie frazy olx, wyszukanie i asercja",
+                  "timedOut": null,
+                  "duration": 3398,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//cy.log(quaries[0].fraze)\ncy.visit('www.google.com/search?q=' + _olx_find.default[0].fraze);\ncy.url().should('contains', _olx_find.default[0].fraze);",
+                  "err": {},
+                  "uuid": "473bc624-d9b5-4c56-a9be-e3ce4ac37edd",
+                  "parentUUID": "95d587c5-2fb0-468a-8b84-5aba05fe568f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ponowne ciasta",
+                  "fullTitle": "Wyszukanie olx i przejście do strony Test 1 Ponowne ciasta",
+                  "timedOut": null,
+                  "duration": 1308,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "google.getCookiesButton().click().should('not.be.visible');",
+                  "err": {},
+                  "uuid": "0dd1cc4b-b664-4dab-a0b8-929a44b41bc7",
+                  "parentUUID": "95d587c5-2fb0-468a-8b84-5aba05fe568f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Wybór wyszukania olx, przejście do strony i asercja + timeout",
+                  "fullTitle": "Wyszukanie olx i przejście do strony Test 1 Wybór wyszukania olx, przejście do strony i asercja + timeout",
+                  "timedOut": null,
+                  "duration": 4890,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#rso > div > div > div > div > div > div > div > div.yuRUbf > a > div > cite').eq(0).click();\ncy.get('a', {\n  timeout: 10000\n});\ncy.url().should('contain', 'olx.pl');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#rso > div > div > div > div > div > div > div > div.yuRUbf > a > div > cite`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#rso > div > div > div > div > div > div > div > div.yuRUbf > a > div > cite`, but never found it.\n    at Context.eval (https://www.google.com/__cypress/tests?p=cypress\\integration\\My%2520tests\\1_test_Przej%25C5%259Bcie%2520do%2520olx%2520przez%2520google.spec.js:221:10)",
+                    "diff": null
+                  },
+                  "uuid": "3e17d7d3-95f0-4d63-9d22-0594c9edcfdc",
+                  "parentUUID": "95d587c5-2fb0-468a-8b84-5aba05fe568f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5b69205c-39cf-4726-b2b1-5962bbb59a13",
+                "473bc624-d9b5-4c56-a9be-e3ce4ac37edd",
+                "0dd1cc4b-b664-4dab-a0b8-929a44b41bc7"
+              ],
+              "failures": [
+                "3e17d7d3-95f0-4d63-9d22-0594c9edcfdc"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 12306,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "isoDateTime",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

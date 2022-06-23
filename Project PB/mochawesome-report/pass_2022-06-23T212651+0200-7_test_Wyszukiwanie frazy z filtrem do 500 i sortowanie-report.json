@@ -1,0 +1,239 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-23T19:24:57.532Z",
+    "end": "2022-06-23T19:26:51.358Z",
+    "duration": 113826,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "54b3ad5a-9004-4f12-8bef-e9fdb7b71107",
+      "title": "",
+      "fullFile": "cypress/integration/My tests/7_test_Wyszukiwanie frazy z filtrem do 500 i sortowanie.spec.js",
+      "file": "cypress/integration/My tests/7_test_Wyszukiwanie frazy z filtrem do 500 i sortowanie.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "609c9d8c-62a0-4ac8-b5f1-6dcdf978d2ee",
+          "title": "Przejście do olx i wyszukanie frazy dla Białegostoku ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "97aa024f-08a5-4c84-8438-1de78409ecd9",
+              "title": "Test 8",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Przejście na strone + timeout",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 8 Przejście na strone + timeout",
+                  "timedOut": null,
+                  "duration": 15133,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('www.olx.pl');\ncy.url().should('contain', 'www.olx.pl');\ncy.get('a', {\n  timeout: 10000\n});",
+                  "err": {},
+                  "uuid": "9434d180-5d7c-4b63-927c-b110d33938ec",
+                  "parentUUID": "97aa024f-08a5-4c84-8438-1de78409ecd9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Akceptacja ciastek",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 8 Akceptacja ciastek",
+                  "timedOut": null,
+                  "duration": 7315,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "olx.getCookiesButtonOlx().click().should('not.be.visible');",
+                  "err": {},
+                  "uuid": "b0d8b24b-6b70-4a8e-aa94-1cb40c049d3c",
+                  "parentUUID": "97aa024f-08a5-4c84-8438-1de78409ecd9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Wybór kategorii - Rowery",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 8 Wybór kategorii - Rowery",
+                  "timedOut": null,
+                  "duration": 15312,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "Cypress.on('uncaught:exception', (err, runnable) => {\n  return false;\n});\ncy.get('#searchmain-container > div > div > div:nth-child(12) > div:nth-child(2) > div > a > span:nth-child(1)').click();\ncy.get('#bottom767 > ul > li:nth-child(8) > a > span > span').click();\ncy.get('[data-testid=\"listing-grid\"]').should(\"contain\", 'rower');",
+                  "err": {},
+                  "uuid": "6128205f-93d5-48cd-9e59-e18ffb70bc49",
+                  "parentUUID": "97aa024f-08a5-4c84-8438-1de78409ecd9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Akceptacja ciastek",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 8 Akceptacja ciastek",
+                  "timedOut": null,
+                  "duration": 9910,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "olx.getCookiesButtonOlx().click().should('not.be.visible');",
+                  "err": {},
+                  "uuid": "804d4152-a02f-4b1d-838d-80e1fce32746",
+                  "parentUUID": "97aa024f-08a5-4c84-8438-1de78409ecd9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Wybór kategorii - Rower miejski",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 8 Wybór kategorii - Rower miejski",
+                  "timedOut": null,
+                  "duration": 19398,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#root > div > div > form > div:nth-child(3) > div > ul > li:nth-child(5) > a').click();",
+                  "err": {},
+                  "uuid": "ab1ac439-b4f1-444d-b5e5-f195092fff8e",
+                  "parentUUID": "97aa024f-08a5-4c84-8438-1de78409ecd9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Akceptacja ciastek",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 8 Akceptacja ciastek",
+                  "timedOut": null,
+                  "duration": 13337,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "olx.getCookiesButtonOlx().click().should('not.be.visible');",
+                  "err": {},
+                  "uuid": "b97f3cd3-4bc9-4a6f-ba99-b79dabd3bb04",
+                  "parentUUID": "97aa024f-08a5-4c84-8438-1de78409ecd9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Wybór filtra - Stan używany",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 8 Wybór filtra - Stan używany",
+                  "timedOut": null,
+                  "duration": 17571,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#root > div > div> form > div:nth-child(3) > div > div > div > div > div > div:nth-child(1) > div > span').click();\ncy.get('#root > div > div > form > div:nth-child(3) > div > div > div > div > div > div > div > div:nth-child(2) > label > input[type=checkbox]').click();\ncy.url().should(\"contain\", 'd/sport-hobby/rowery/rowery-miejskie/?search%5Bfilter_enum_state%5D%5B0%5D=used');",
+                  "err": {},
+                  "uuid": "b9512011-d702-45b6-8f98-025d414febae",
+                  "parentUUID": "97aa024f-08a5-4c84-8438-1de78409ecd9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9434d180-5d7c-4b63-927c-b110d33938ec",
+                "b0d8b24b-6b70-4a8e-aa94-1cb40c049d3c",
+                "6128205f-93d5-48cd-9e59-e18ffb70bc49",
+                "804d4152-a02f-4b1d-838d-80e1fce32746",
+                "ab1ac439-b4f1-444d-b5e5-f195092fff8e",
+                "b97f3cd3-4bc9-4a6f-ba99-b79dabd3bb04",
+                "b9512011-d702-45b6-8f98-025d414febae"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 97976,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "isoDateTime",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

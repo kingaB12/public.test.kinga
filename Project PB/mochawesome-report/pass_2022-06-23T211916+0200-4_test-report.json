@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-23T19:18:16.531Z",
+    "end": "2022-06-23T19:19:16.715Z",
+    "duration": 60184,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "facb41b9-27ec-4a5a-8b7f-e5e2274e9f88",
+      "title": "",
+      "fullFile": "cypress/integration/My tests/4_test._Wyszukanie frazy, SZUKAJ.spec.js",
+      "file": "cypress/integration/My tests/4_test._Wyszukanie frazy, SZUKAJ.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3f4536d0-9069-40f3-8eb2-90f66b8d3c98",
+          "title": "Przejście do olx i wyszukanie frazy + SZUKAJ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "9e528c3b-9172-4b63-acaa-b0ccac228743",
+              "title": "Test 4",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Przejście na strone + timeout",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy + SZUKAJ Test 4 Przejście na strone + timeout",
+                  "timedOut": null,
+                  "duration": 9716,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('www.olx.pl');\ncy.url().should('contain', 'www.olx.pl');\ncy.get('a', {\n  timeout: 10000\n});",
+                  "err": {},
+                  "uuid": "4c696d9a-ecd6-4dbc-ad51-7a7ae709b2aa",
+                  "parentUUID": "9e528c3b-9172-4b63-acaa-b0ccac228743",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Akceptacja ciastek",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy + SZUKAJ Test 4 Akceptacja ciastek",
+                  "timedOut": null,
+                  "duration": 9679,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "olx.getCookiesButtonOlx().click().should('not.be.visible');",
+                  "err": {},
+                  "uuid": "2b3477f9-579d-481b-b055-2b68813b1323",
+                  "parentUUID": "9e528c3b-9172-4b63-acaa-b0ccac228743",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Dodanie inputu, szukanie frazy i asercja + SZUKAJ",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy + SZUKAJ Test 4 Dodanie inputu, szukanie frazy i asercja + SZUKAJ",
+                  "timedOut": null,
+                  "duration": 20026,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "Cypress.on('uncaught:exception', (err, runnable) => {\n  return false;\n});\ncy.get('[data-cy=\"homepage_input_textsearch\"]').type('rower');\ncy.get('#submit-searchmain').eq(0).click();\ncy.url().should(\"contain\", 'rower');",
+                  "err": {},
+                  "uuid": "634e53f7-3ff2-4342-9879-1c4f2a6bf5fe",
+                  "parentUUID": "9e528c3b-9172-4b63-acaa-b0ccac228743",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "4c696d9a-ecd6-4dbc-ad51-7a7ae709b2aa",
+                "2b3477f9-579d-481b-b055-2b68813b1323",
+                "634e53f7-3ff2-4342-9879-1c4f2a6bf5fe"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 39421,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "isoDateTime",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

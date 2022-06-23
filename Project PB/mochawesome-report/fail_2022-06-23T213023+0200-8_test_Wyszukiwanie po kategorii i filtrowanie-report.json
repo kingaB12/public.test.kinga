@@ -1,0 +1,244 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 7,
+    "passes": 6,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-06-23T19:27:31.761Z",
+    "end": "2022-06-23T19:30:23.218Z",
+    "duration": 171457,
+    "testsRegistered": 7,
+    "passPercent": 85.71428571428571,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b62ee146-1c08-49fe-80d5-8643bc32bbb3",
+      "title": "",
+      "fullFile": "cypress/integration/My tests/8_test_Wyszukiwanie po kategorii i filtrowanie.spec.js",
+      "file": "cypress/integration/My tests/8_test_Wyszukiwanie po kategorii i filtrowanie.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d31328e6-372f-4351-a788-3cd67a6884e4",
+          "title": "Przejście do olx i wyszukanie frazy dla Białegostoku ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "c6417a4d-6361-4be2-99bf-1b27396027ae",
+              "title": "Test 9",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Przejście na strone + timeout",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 9 Przejście na strone + timeout",
+                  "timedOut": null,
+                  "duration": 10339,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('www.olx.pl');\ncy.url().should('contain', 'www.olx.pl');\ncy.get('a', {\n  timeout: 10000\n});",
+                  "err": {},
+                  "uuid": "46f7c09b-f103-454d-9102-6ebf084a54bd",
+                  "parentUUID": "c6417a4d-6361-4be2-99bf-1b27396027ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Akceptacja ciastek",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 9 Akceptacja ciastek",
+                  "timedOut": null,
+                  "duration": 4377,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "olx.getCookiesButtonOlx().click().should('not.be.visible');",
+                  "err": {},
+                  "uuid": "76932d07-5d77-4091-a81f-5921588e26cc",
+                  "parentUUID": "c6417a4d-6361-4be2-99bf-1b27396027ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Szukanie frazy dla Białegostoku i asercja",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 9 Szukanie frazy dla Białegostoku i asercja",
+                  "timedOut": null,
+                  "duration": 21488,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "Cypress.on('uncaught:exception', (err, runnable) => {\n  return false;\n});\ncy.get('[data-cy=\"homepage_input_textsearch\"]').type('rower');\ncy.get('[data-cy=\"homepage_input_locationsearch\"]').type('Białystok').wait(1000);\ncy.get('[data-cy=\"homepage_link_autosuggest\"] > :nth-child(1) > .tdnone').click();\ncy.get('[data-cy=\"homepage_button_search\"]').click();\ncy.url().should(\"contain\", 'bialystok');\ncy.get('[data-testid=\"listing-grid\"]').should(\"contain\", 'rower');",
+                  "err": {},
+                  "uuid": "5969edcd-fc56-4f2f-b74c-9d2234251de8",
+                  "parentUUID": "c6417a4d-6361-4be2-99bf-1b27396027ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Akceptacja ciastek",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 9 Akceptacja ciastek",
+                  "timedOut": null,
+                  "duration": 12224,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "olx.getCookiesButtonOlx().click().should('not.be.visible');",
+                  "err": {},
+                  "uuid": "2bb7bbc7-d044-41ce-95b2-e5462c984286",
+                  "parentUUID": "c6417a4d-6361-4be2-99bf-1b27396027ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Paginacja - Strona 3",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 9 Paginacja - Strona 3",
+                  "timedOut": null,
+                  "duration": 13771,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#root > div > div> form > div:nth-child(5) > div > section.css-j8u5qq > div > ul > li:nth-child(3)').click();\ncy.url().should(\"contain\", 'page=3');",
+                  "err": {},
+                  "uuid": "b74e2cdf-45e8-40d3-8983-f8a20b8a5ad2",
+                  "parentUUID": "c6417a4d-6361-4be2-99bf-1b27396027ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Paginacja - Następna strona",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 9 Paginacja - Następna strona",
+                  "timedOut": null,
+                  "duration": 16273,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#root > div > div > form > div:nth-child(5) > div > section.css-j8u5qq > div > ul > a:nth-child(7) > svg').click();\ncy.url().should(\"contain\", 'page=4');",
+                  "err": {},
+                  "uuid": "735eb07e-3e66-4f8d-b490-710cae883c8c",
+                  "parentUUID": "c6417a4d-6361-4be2-99bf-1b27396027ae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Paginacja - Pierwsza strona",
+                  "fullTitle": "Przejście do olx i wyszukanie frazy dla Białegostoku  Test 9 Paginacja - Pierwsza strona",
+                  "timedOut": null,
+                  "duration": 31860,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#root > div > div > form > div:nth-child(5) > div > section.css-j8u5qq > div > ul > li:nth-child(2)').click();\ncy.url().should(\"contain\", 'page=1');",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: expected 'https://www.olx.pl/d/bialystok/q-rower/' to include 'page=1'",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: expected 'https://www.olx.pl/d/bialystok/q-rower/' to include 'page=1'\n    at Context.eval (https://www.olx.pl/__cypress/tests?p=cypress\\integration\\My%2520tests\\9_test_Paginacja.spec.js:223:16)",
+                    "diff": null
+                  },
+                  "uuid": "76e770c7-9f27-438a-8fd9-bac356f4cc39",
+                  "parentUUID": "c6417a4d-6361-4be2-99bf-1b27396027ae",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "46f7c09b-f103-454d-9102-6ebf084a54bd",
+                "76932d07-5d77-4091-a81f-5921588e26cc",
+                "5969edcd-fc56-4f2f-b74c-9d2234251de8",
+                "2bb7bbc7-d044-41ce-95b2-e5462c984286",
+                "b74e2cdf-45e8-40d3-8983-f8a20b8a5ad2",
+                "735eb07e-3e66-4f8d-b490-710cae883c8c"
+              ],
+              "failures": [
+                "76e770c7-9f27-438a-8fd9-bac356f4cc39"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 110332,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportFilename": "[status]_[datetime]-[name]-report",
+        "timestamp": "isoDateTime",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
